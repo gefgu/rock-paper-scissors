@@ -15,6 +15,7 @@
 
 .rock {
   border: 25px solid hsl(349, 71%, 52%);
+  grid-column: span 2;
 }
 
 .scissors {
