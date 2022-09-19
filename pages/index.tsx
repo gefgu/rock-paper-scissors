@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import Button from "../components/Button";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
@@ -20,6 +21,11 @@ const Home: NextPage = () => {
           <h3 className={styles.score}>12</h3>
         </div>
       </header>
+      <main>
+        <Button item="paper"/>
+        <Button item="scissors"/>
+        <Button item="rock"/>
+      </main>
     </div>
   );
 };
