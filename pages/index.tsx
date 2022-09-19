@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
@@ -12,7 +13,11 @@ const Home: NextPage = () => {
         <meta name="description" content="Rock Paper Scissors Game" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header className={styles.header}>
+      <motion.header
+        className={styles.header}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+      >
         <h1>
           <Image src="/logo.svg" width={162} height={99} />
         </h1>
@@ -20,12 +25,13 @@ const Home: NextPage = () => {
           <h2 className={styles.scoreTitle}>Score</h2>
           <h3 className={styles.score}>12</h3>
         </div>
-      </header>
-      <main className={`${styles.game} ${styles.starting}`}>
-        <Button item="paper"/>
-        <Button item="scissors"/>
-        <Button item="rock"/>
-      </main>
+      </motion.header>
+      <motion.main className={`${styles.game} ${styles.starting}`} initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}>
+        <Button item="paper" />
+        <Button item="scissors" />
+        <Button item="rock" />
+      </motion.main>
     </div>
   );
 };
