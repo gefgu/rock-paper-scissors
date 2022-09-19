@@ -16,8 +16,8 @@ const Home: NextPage = () => {
           <Image src="/logo.svg" width={162} height={99} />
         </h1>
         <div className={styles.scoreBox}>
-          <h2>Score</h2>
-          <h3>12</h3>
+          <h2 className={styles.scoreTitle}>Score</h2>
+          <h3 className={styles.score}>12</h3>
         </div>
       </header>
     </div>
