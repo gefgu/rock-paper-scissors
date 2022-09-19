@@ -12,7 +12,13 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header className={styles.header}>
-        <Image src="/logo.svg" width={162} height={99} />
+        <h1>
+          <Image src="/logo.svg" width={162} height={99} />
+        </h1>
+        <div className={styles.scoreBox}>
+          <h2>Score</h2>
+          <h3>12</h3>
+        </div>
       </header>
     </div>
   );
