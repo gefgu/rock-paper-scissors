@@ -21,7 +21,7 @@ const Home: NextPage = () => {
           <h3 className={styles.score}>12</h3>
         </div>
       </header>
-      <main>
+      <main className={styles.game}>
         <Button item="paper"/>
         <Button item="scissors"/>
         <Button item="rock"/>

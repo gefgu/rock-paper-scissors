@@ -23,8 +23,8 @@ const Button: React.FunctionComponent<ButtonProps> = ({
   };
 
   return (
-    <div className={styles.container}>
-      <Image src={data[item].icon} width={49} height={59} />
+    <div className={`${styles.container} ${styles[item]}`}>
+      <Image src={data[item].icon} width={49*1.5} height={59*1.5} />
     </div>
   );
 };

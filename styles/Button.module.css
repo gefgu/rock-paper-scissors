@@ -1,0 +1,22 @@
+.container {
+  background-color: white;
+  width: 200px;
+  height: 200px;
+  padding: 32px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.paper {
+  border: 25px solid hsl(230, 89%, 62%);
+}
+
+.rock {
+  border: 25px solid hsl(349, 71%, 52%);
+}
+
+.scissors {
+  border: 25px solid hsl(39, 89%, 49%);
+}

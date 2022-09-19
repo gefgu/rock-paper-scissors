@@ -7,7 +7,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   padding: 16px;
 }
@@ -53,6 +53,11 @@
 .score {
   color: hsl(229, 25%, 31%);
   font-size: 64px;
+}
+
+.game {
+  display: flex;
+  gap: 32px;
 }
 
 @media (max-width: 500px) {
