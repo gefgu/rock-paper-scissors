@@ -1,4 +1,18 @@
 .container {
-  background: radial-gradient(circle at top, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+  background: radial-gradient(
+    circle at top,
+    hsl(214, 47%, 23%),
+    hsl(237, 49%, 15%)
+  );
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  border: 4px solid hsl(217, 16%, 45%);
+  border-radius: 8px;
+  padding: 20px 32px;
 }
