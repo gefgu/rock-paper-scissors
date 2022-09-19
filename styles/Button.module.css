@@ -27,8 +27,8 @@
 
 @media (max-width: 500px) {
   .container {
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
     border-width: 10px;
   }
 }

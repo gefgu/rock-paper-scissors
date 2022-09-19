@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Button.module.css";
 import React from "react";
+import { motion } from "framer-motion";
 
 interface ButtonProps {
   item: "paper" | "rock" | "scissors";
@@ -23,9 +24,19 @@ const Button: React.FunctionComponent<ButtonProps> = ({
   };
 
   return (
-    <div className={`${styles.container} ${styles[item]}`}>
-      <Image src={data[item].icon} width={49*1.5} height={59*1.5} />
-    </div>
+    <motion.div
+      className={`${styles.container} ${styles[item]}`}
+      whileHover={{
+        rotate: 15,
+        transition: { duration: 0.5, repeat: Infinity, repeatType: "reverse" },
+      }}
+      whileTap={{
+        rotate: 15,
+        transition: { duration: 0.25, repeat: Infinity, repeatType: "reverse" },
+      }}
+    >
+      <Image src={data[item].icon} width={49 * 1.5} height={59 * 1.5} />
+    </motion.div>
   );
 };
 
