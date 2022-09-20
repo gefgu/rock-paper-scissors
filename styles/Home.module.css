@@ -63,11 +63,16 @@
   grid-template-columns: 1fr 1fr;
   align-items: center;
   justify-items: center;
-  gap: 64px;
+  gap: 48px;
+  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1), background 0s;
 }
 
 .starting {
   background: url("/bg-triangle.svg") center no-repeat;
+}
+
+.playing {
+  gap: 64px;
 }
 
 @media (max-width: 500px) {

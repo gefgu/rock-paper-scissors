@@ -36,7 +36,7 @@ const Home: NextPage = () => {
         </div>
       </motion.header>
       <motion.main
-        className={`${styles.game} ${!isPlaying && styles.starting}`}
+        className={`${styles.game} ${isPlaying ? styles.playing :styles.starting}`}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
       >
