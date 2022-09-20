@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
@@ -8,12 +8,7 @@ import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
   const [isPlaying, setIsPlaying] = React.useState(false);
-
-  const items: Array<"paper" | "scissors" | "rock"> = [
-    "paper",
-    "scissors",
-    "rock",
-  ];
+  const [move, setMove] = React.useState<"paper" | "scissors" | "rock">();
 
   return (
     <div className={styles.container}>
@@ -36,24 +31,58 @@ const Home: NextPage = () => {
         </div>
       </motion.header>
       <motion.main
-        className={`${styles.game} ${isPlaying ? styles.playing :styles.starting}`}
+        className={`${styles.game} ${
+          isPlaying ? styles.playing : styles.starting
+        }`}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
       >
-        <AnimatePresence>
-          {items.map((item, index) => {
-            if (isPlaying && index >= 2) return "";
-            else {
-              return (
-                <Button
-                  item={item}
-                  key={item}
-                  onClick={() => setIsPlaying(!isPlaying)}
-                />
-              );
-            }
-          })}
-        </AnimatePresence>
+        {isPlaying && move !== undefined ? (
+          <>
+            <Button
+              item={move}
+              key={move}
+              onClick={() => {
+                setIsPlaying(!isPlaying);
+              }}
+            />
+
+            <Button
+              item={move}
+              key={move}
+              onClick={() => {
+                setIsPlaying(!isPlaying);
+              }}
+            />
+          </>
+        ) : (
+          <>
+            <Button
+              item={"paper"}
+              key={"paper"}
+              onClick={() => {
+                setMove("paper");
+                setIsPlaying(!isPlaying);
+              }}
+            />
+            <Button
+              item={"scissors"}
+              key={"scissors"}
+              onClick={() => {
+                setMove("scissors");
+                setIsPlaying(!isPlaying);
+              }}
+            />
+            <Button
+              item={"rock"}
+              key={"rock"}
+              onClick={() => {
+                setMove("rock");
+                setIsPlaying(!isPlaying);
+              }}
+            />
+          </>
+        )}
       </motion.main>
     </div>
   );

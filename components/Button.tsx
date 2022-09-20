@@ -36,7 +36,7 @@ const Button: React.FunctionComponent<ButtonProps> = ({
         rotate: 15,
         transition: { duration: 0.25, repeat: Infinity, repeatType: "reverse" },
       }}
-      exit={{ opacity: 0 }}
+      // exit={{ opacity: 0 }}
       onClick={onClick}
     >
       <Image src={data[item].icon} width={49 * 1.5} height={59 * 1.5} />
