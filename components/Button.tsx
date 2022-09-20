@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Button.module.css";
 import React from "react";
@@ -7,7 +6,7 @@ import { motion } from "framer-motion";
 interface ButtonProps {
   item: "paper" | "rock" | "scissors";
   onClick?: React.MouseEventHandler;
-  span?: boolean,
+  span?: boolean;
 }
 
 const Button: React.FunctionComponent<ButtonProps> = ({

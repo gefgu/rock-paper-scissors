@@ -57,21 +57,15 @@ const Home: NextPage = () => {
       >
         {isPlaying && move !== undefined && computerMove !== undefined ? (
           <>
-            <Button
-              item={move}
-              key={move}
-              onClick={() => {
-                setIsPlaying(!isPlaying);
-              }}
-            />
-
-            <Button
-              item={computerMove}
+            <Button item={move} key={move} />
+            <motion.div
               key={computerMove}
-              onClick={() => {
-                setIsPlaying(!isPlaying);
-              }}
-            />
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 2 }}
+            >
+              <Button item={computerMove} />
+            </motion.div>
           </>
         ) : (
           <>
