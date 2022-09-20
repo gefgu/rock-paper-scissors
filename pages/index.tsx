@@ -2,10 +2,13 @@ import { motion } from "framer-motion";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import React from "react";
 import Button from "../components/Button";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
+  const [isPlaying, setIsPlaying] = React.useState(false);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -26,9 +29,12 @@ const Home: NextPage = () => {
           <h3 className={styles.score}>12</h3>
         </div>
       </motion.header>
-      <motion.main className={`${styles.game} ${styles.starting}`} initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}>
-        <Button item="paper" />
+      <motion.main
+        className={`${styles.game} ${!isPlaying && styles.starting}`}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+      >
+        <Button item="paper" onClick={() => setIsPlaying(!isPlaying)} />
         <Button item="scissors" />
         <Button item="rock" />
       </motion.main>

@@ -6,10 +6,12 @@ import { motion } from "framer-motion";
 
 interface ButtonProps {
   item: "paper" | "rock" | "scissors";
+  onClick?: React.MouseEventHandler;
 }
 
 const Button: React.FunctionComponent<ButtonProps> = ({
   item,
+  onClick,
 }: ButtonProps) => {
   const data = {
     paper: {
@@ -34,6 +36,7 @@ const Button: React.FunctionComponent<ButtonProps> = ({
         rotate: 15,
         transition: { duration: 0.25, repeat: Infinity, repeatType: "reverse" },
       }}
+      onClick={onClick}
     >
       <Image src={data[item].icon} width={49 * 1.5} height={59 * 1.5} />
     </motion.div>

@@ -59,15 +59,15 @@
 .game {
   min-height: 400px;
   position: relative;
-}
-
-.starting {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
   justify-items: center;
-  background: url("/bg-triangle.svg") center no-repeat;
   gap: 64px;
+}
+
+.starting {
+  background: url("/bg-triangle.svg") center no-repeat;
 }
 
 @media (max-width: 500px) {
