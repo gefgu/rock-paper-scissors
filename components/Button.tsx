@@ -7,11 +7,13 @@ import { motion } from "framer-motion";
 interface ButtonProps {
   item: "paper" | "rock" | "scissors";
   onClick?: React.MouseEventHandler;
+  span?: boolean,
 }
 
 const Button: React.FunctionComponent<ButtonProps> = ({
   item,
   onClick,
+  span = false,
 }: ButtonProps) => {
   const data = {
     paper: {
@@ -27,7 +29,7 @@ const Button: React.FunctionComponent<ButtonProps> = ({
 
   return (
     <motion.div
-      className={`${styles.container} ${styles[item]}`}
+      className={`${styles.container} ${styles[item]} ${span && styles.span}`}
       whileHover={{
         rotate: 15,
         transition: { duration: 0.5, repeat: Infinity, repeatType: "reverse" },
@@ -36,7 +38,6 @@ const Button: React.FunctionComponent<ButtonProps> = ({
         rotate: 15,
         transition: { duration: 0.25, repeat: Infinity, repeatType: "reverse" },
       }}
-      // exit={{ opacity: 0 }}
       onClick={onClick}
     >
       <Image src={data[item].icon} width={49 * 1.5} height={59 * 1.5} />

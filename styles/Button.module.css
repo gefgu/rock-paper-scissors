@@ -18,11 +18,14 @@
 
 .rock {
   border-color: hsl(349, 71%, 52%);
-  grid-column: span 2;
 }
 
 .scissors {
   border-color: hsl(39, 89%, 49%);
+}
+
+.span {
+  grid-column: span 2;
 }
 
 @media (max-width: 500px) {

@@ -2,13 +2,31 @@ import { motion } from "framer-motion";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import Button from "../components/Button";
 import styles from "../styles/Home.module.css";
+
+const getRandomMove = () => {
+  const randomValue = Math.floor(Math.random() * 3);
+  if (randomValue === 0) return "paper";
+  if (randomValue === 1) return "scissors";
+  if (randomValue === 2) return "rock";
+};
 
 const Home: NextPage = () => {
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [move, setMove] = React.useState<"paper" | "scissors" | "rock">();
+  const [computerMove, setComputerMove] = React.useState<
+    "paper" | "scissors" | "rock"
+  >();
+
+  useEffect(() => {
+    if (move) {
+      setComputerMove(getRandomMove());
+    } else {
+      setComputerMove(undefined);
+    }
+  }, [move]);
 
   return (
     <div className={styles.container}>
@@ -37,7 +55,7 @@ const Home: NextPage = () => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
       >
-        {isPlaying && move !== undefined ? (
+        {isPlaying && move !== undefined && computerMove !== undefined ? (
           <>
             <Button
               item={move}
@@ -48,8 +66,8 @@ const Home: NextPage = () => {
             />
 
             <Button
-              item={move}
-              key={move}
+              item={computerMove}
+              key={computerMove}
               onClick={() => {
                 setIsPlaying(!isPlaying);
               }}
@@ -76,6 +94,7 @@ const Home: NextPage = () => {
             <Button
               item={"rock"}
               key={"rock"}
+              span={true}
               onClick={() => {
                 setMove("rock");
                 setIsPlaying(!isPlaying);
