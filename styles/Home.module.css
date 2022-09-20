@@ -7,7 +7,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   padding: 32px;
   gap: 64px;
@@ -57,6 +57,7 @@
 }
 
 .game {
+  max-width: 700px;
   min-height: 400px;
   position: relative;
   display: grid;
@@ -71,8 +72,9 @@
   background: url("/bg-triangle.svg") center no-repeat;
 }
 
-.playing {
-  gap: 64px;
+.game.playing {
+  width: 100%;
+  gap: 32px;
 }
 
 .choiceTitle {
