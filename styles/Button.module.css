@@ -29,6 +29,7 @@
   .container {
     width: 140px;
     height: 140px;
-    border-width: 10px;
+    padding: 28px;
+    border-width: 15px;
   }
 }
