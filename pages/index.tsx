@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
@@ -8,6 +8,12 @@ import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
   const [isPlaying, setIsPlaying] = React.useState(false);
+
+  const items: Array<"paper" | "scissors" | "rock"> = [
+    "paper",
+    "scissors",
+    "rock",
+  ];
 
   return (
     <div className={styles.container}>
@@ -34,9 +40,20 @@ const Home: NextPage = () => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
       >
-        <Button item="paper" onClick={() => setIsPlaying(!isPlaying)} />
-        <Button item="scissors" />
-        <Button item="rock" />
+        <AnimatePresence>
+          {items.map((item, index) => {
+            if (isPlaying && index >= 2) return "";
+            else {
+              return (
+                <Button
+                  item={item}
+                  key={item}
+                  onClick={() => setIsPlaying(!isPlaying)}
+                />
+              );
+            }
+          })}
+        </AnimatePresence>
       </motion.main>
     </div>
   );
