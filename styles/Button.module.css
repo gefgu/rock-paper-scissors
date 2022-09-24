@@ -12,12 +12,24 @@
   border-style: solid;
 }
 
-.container.big {
-  width: 300px;
-  height: 300px;
-  border-width: 35px;
-  padding: 16px;
+@media (min-width: 1000px) {
+  .container.big {
+    width: 300px;
+    height: 300px;
+    border-width: 35px;
+    padding: 16px;
+  }
 }
+
+@media (min-width: 800px) {
+  .container.big {
+    width: 250px;
+    height: 250px;
+    border-width: 30px;
+    padding: 16px;
+  }
+}
+
 .paper {
   border-color: hsl(230, 89%, 62%);
 }
@@ -34,7 +46,7 @@
   grid-column: span 2;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 700px) {
   .container {
     width: 140px;
     height: 140px;

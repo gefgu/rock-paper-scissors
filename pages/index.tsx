@@ -86,12 +86,12 @@ const Home: NextPage = () => {
       >
         {isPlaying && move !== undefined && computerMove !== undefined ? (
           <>
-            <div key={move}>
+            <div key={move} className={styles.choiceBox}>
               <h3 className={styles.choiceTitle}>You Picked</h3>
               <Button item={move} big />
             </div>
             {isGameOver && (
-              <div>
+              <div className={styles.gameOverWrapper}>
                 <h3 className={styles.gameOverTitle}>You {gameStatus()}!</h3>
                 <button
                   className={`${styles.restart} ${
@@ -103,7 +103,7 @@ const Home: NextPage = () => {
                 </button>
               </div>
             )}
-            <div>
+            <div className={styles.choiceBox}>
               <h3 className={styles.choiceTitle}>The House Picked</h3>
               <motion.div
                 key={computerMove}

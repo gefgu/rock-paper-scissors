@@ -81,6 +81,13 @@
   grid-template-columns: 1fr auto 1fr;
 }
 
+.choiceBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .choiceTitle {
   text-align: center;
   color: white;
@@ -187,6 +194,24 @@
   }
 
   .starting {
+    gap: 32px;
+  }
+}
+
+@media (max-width: 800px) {
+  .game.playing {
+    gap: 24px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .game .gameOverWrapper {
+    order: 10;
+  }
+
+  .game {
     gap: 32px;
   }
 }
