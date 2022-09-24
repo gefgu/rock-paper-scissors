@@ -78,7 +78,7 @@ const Home: NextPage = () => {
             </div>
             {isGameOver && (
               <>
-                <h3 className={styles.choiceTitle}>You {gameStatus()}!</h3>
+                <h3 className={styles.gameOverTitle}>You {gameStatus()}!</h3>
               </>
             )}
             <div>
