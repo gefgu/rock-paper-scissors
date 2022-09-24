@@ -19,14 +19,29 @@ const Home: NextPage = () => {
   const [computerMove, setComputerMove] = React.useState<
     "paper" | "scissors" | "rock"
   >();
+  const [isGameOver, setIsGameOver] = React.useState(false);
+  const animationTime = 1500;
 
   useEffect(() => {
     if (move) {
       setComputerMove(getRandomMove());
+      setTimeout(() => setIsGameOver(true), animationTime);
     } else {
       setComputerMove(undefined);
     }
   }, [move]);
+
+
+  const gameStatus = (): "win" | "draw" | "lose" => {
+    if (move === computerMove) return "draw";
+    else if (move === "paper" && computerMove === "rock") return "win";
+    else if (move === "paper" && computerMove === "scissors") return "lose";
+    else if (move === "rock" && computerMove === "scissors") return "win";
+    else if (move === "rock" && computerMove === "paper") return "lose";
+    else if (move === "scissors" && computerMove === "paper") return "win";
+    else if (move === "scissors" && computerMove === "rock") return "lose";
+    else return "draw";
+  };
 
   return (
     <div className={styles.container}>
@@ -51,7 +66,7 @@ const Home: NextPage = () => {
       <motion.main
         className={`${styles.game} ${
           isPlaying ? styles.playing : styles.starting
-        }`}
+        } ${isGameOver ? styles.gameOver : ""}`}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
       >
@@ -61,13 +76,18 @@ const Home: NextPage = () => {
               <h3 className={styles.choiceTitle}>You Picked</h3>
               <Button item={move} />
             </div>
+            {isGameOver && (
+              <>
+                <h3 className={styles.choiceTitle}>You {gameStatus()}!</h3>
+              </>
+            )}
             <div>
               <h3 className={styles.choiceTitle}>The House Picked</h3>
               <motion.div
                 key={computerMove}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 2.5 }}
+                transition={{ duration: animationTime/1000 }}
               >
                 <Button item={computerMove} />
               </motion.div>

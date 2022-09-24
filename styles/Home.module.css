@@ -77,6 +77,10 @@
   gap: 32px;
 }
 
+.game.gameOver {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
 .choiceTitle {
   text-align: center;
   color: white;
