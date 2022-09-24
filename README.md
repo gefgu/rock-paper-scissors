@@ -27,8 +27,6 @@ Users should be able to:
 
 ### Screenshot
 
-![live demonstration](./rock-paper-scissors.mp4)
-
 ### Links
 
 - Solution URL: [FrontEnd Mentor solution](https://www.frontendmentor.io/challenges/rock-paper-scissors-game-pTgwgvgH/hub/rock-paper-scissors-game-using-react-and-framer-motion-GCjILqHcBv)
