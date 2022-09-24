@@ -31,7 +31,6 @@ const Home: NextPage = () => {
     }
   }, [move]);
 
-
   const gameStatus = (): "win" | "draw" | "lose" => {
     if (move === computerMove) return "draw";
     else if (move === "paper" && computerMove === "rock") return "win";
@@ -77,9 +76,16 @@ const Home: NextPage = () => {
               <Button item={move} />
             </div>
             {isGameOver && (
-              <>
+              <div>
                 <h3 className={styles.gameOverTitle}>You {gameStatus()}!</h3>
-              </>
+                <button
+                  className={`${styles.restart} ${
+                    gameStatus() === "lose" ? styles.lose : ""
+                  }`}
+                >
+                  Play Again
+                </button>
+              </div>
             )}
             <div>
               <h3 className={styles.choiceTitle}>The House Picked</h3>
@@ -87,7 +93,7 @@ const Home: NextPage = () => {
                 key={computerMove}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: animationTime/1000 }}
+                transition={{ duration: animationTime / 1000 }}
               >
                 <Button item={computerMove} />
               </motion.div>
