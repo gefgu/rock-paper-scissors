@@ -74,11 +74,11 @@
 
 .game.playing {
   width: 100%;
-  gap: 16px;
+  gap: 0;
 }
 
 .game.gameOver {
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr auto 1fr;
 }
 
 .choiceTitle {
