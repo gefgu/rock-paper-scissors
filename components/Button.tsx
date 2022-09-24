@@ -7,12 +7,14 @@ interface ButtonProps {
   item: "paper" | "rock" | "scissors";
   onClick?: React.MouseEventHandler;
   span?: boolean;
+  big?: boolean;
 }
 
 const Button: React.FunctionComponent<ButtonProps> = ({
   item,
   onClick,
   span = false,
+  big = false,
 }: ButtonProps) => {
   const data = {
     paper: {
@@ -28,7 +30,9 @@ const Button: React.FunctionComponent<ButtonProps> = ({
 
   return (
     <motion.div
-      className={`${styles.container} ${styles[item]} ${span && styles.span}`}
+      className={`${styles.container} ${styles[item]} ${span && styles.span} ${
+        big && styles.big
+      }`}
       whileHover={{
         rotate: 15,
         transition: { duration: 0.5, repeat: Infinity, repeatType: "reverse" },
@@ -39,7 +43,11 @@ const Button: React.FunctionComponent<ButtonProps> = ({
       }}
       onClick={onClick}
     >
-      <Image src={data[item].icon} width={49 * 1.5} height={59 * 1.5} />
+      {big ? (
+        <Image src={data[item].icon} width={49 * 2} height={59 * 2} />
+      ) : (
+        <Image src={data[item].icon} width={49 * 1.5} height={59 * 1.5} />
+      )}
     </motion.div>
   );
 };

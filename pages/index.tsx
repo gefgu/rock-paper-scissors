@@ -87,7 +87,7 @@ const Home: NextPage = () => {
           <>
             <div key={move}>
               <h3 className={styles.choiceTitle}>You Picked</h3>
-              <Button item={move} />
+              <Button item={move} big />
             </div>
             {isGameOver && (
               <div>
@@ -110,7 +110,7 @@ const Home: NextPage = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: animationTime / 1000 }}
               >
-                <Button item={computerMove} />
+                <Button item={computerMove} big />
               </motion.div>
             </div>
           </>
