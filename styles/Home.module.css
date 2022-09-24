@@ -118,6 +118,24 @@
   color: hsl(349, 71%, 52%);
 }
 
+.rulesWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.rulesButton {
+  border: hsl(217, 16%, 45%) 2px solid;
+  padding: 12px 36px;
+  border-radius: 8px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 1rem;
+  font-weight: 500;
+  color: white;
+}
+
 @media (max-width: 500px) {
   .header {
     justify-content: center;

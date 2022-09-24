@@ -144,6 +144,9 @@ const Home: NextPage = () => {
           </>
         )}
       </motion.main>
+      <div className={styles.rulesWrapper}>
+        <button className={styles.rulesButton}>Rules</button>
+      </div>
     </div>
   );
 };
