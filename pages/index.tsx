@@ -153,25 +153,34 @@ const Home: NextPage = () => {
           Rules
         </button>
       </div>
-      <motion.main
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        className={styles.modal}
-      >
-        <div className={styles.flexBetween}>
-          <h2>Rules</h2>
-          <button onClick={() => setShowRules(false)}>
-            <Image alt="close" src="/icon-close.svg" width={20} height={20} />
-          </button>
+      {showRules && (
+        <div className={styles.modalWrapper}>
+          <motion.main
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            className={styles.modal}
+          >
+            <div className={styles.flexBetween}>
+              <h2>Rules</h2>
+              <button onClick={() => setShowRules(false)}>
+                <Image
+                  alt="close"
+                  src="/icon-close.svg"
+                  width={20}
+                  height={20}
+                />
+              </button>
+            </div>
+            <Image
+              alt="rules"
+              src="/image-rules.svg"
+              width={304}
+              height={270}
+              layout="responsive"
+            />
+          </motion.main>
         </div>
-        <Image
-          alt="rules"
-          src="/image-rules.svg"
-          width={304}
-          height={270}
-          layout="responsive"
-        />
-      </motion.main>
+      )}
     </div>
   );
 };
