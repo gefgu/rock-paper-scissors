@@ -42,6 +42,13 @@ const Home: NextPage = () => {
     else return "draw";
   };
 
+  const restartGame = () => {
+    setIsPlaying(false);
+    setMove(undefined);
+    setComputerMove(undefined);
+    setIsGameOver(false);
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -82,6 +89,7 @@ const Home: NextPage = () => {
                   className={`${styles.restart} ${
                     gameStatus() === "lose" ? styles.lose : ""
                   }`}
+                  onClick={restartGame}
                 >
                   Play Again
                 </button>
