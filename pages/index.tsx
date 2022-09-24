@@ -21,6 +21,7 @@ const Home: NextPage = () => {
   >();
   const [isGameOver, setIsGameOver] = React.useState(false);
   const [score, setScore] = React.useState(0);
+  const [showRules, setShowRules] = React.useState(false);
   const animationTime = 1000;
 
   useEffect(() => {
@@ -145,8 +146,32 @@ const Home: NextPage = () => {
         )}
       </motion.main>
       <div className={styles.rulesWrapper}>
-        <button className={styles.rulesButton}>Rules</button>
+        <button
+          className={styles.rulesButton}
+          onClick={() => setShowRules(!showRules)}
+        >
+          Rules
+        </button>
       </div>
+      <motion.main
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        className={styles.modal}
+      >
+        <div className={styles.flexBetween}>
+          <h2>Rules</h2>
+          <button onClick={() => setShowRules(false)}>
+            <Image alt="close" src="/icon-close.svg" width={20} height={20} />
+          </button>
+        </div>
+        <Image
+          alt="rules"
+          src="/image-rules.svg"
+          width={304}
+          height={270}
+          layout="responsive"
+        />
+      </motion.main>
     </div>
   );
 };
