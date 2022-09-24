@@ -20,7 +20,8 @@ const Home: NextPage = () => {
     "paper" | "scissors" | "rock"
   >();
   const [isGameOver, setIsGameOver] = React.useState(false);
-  const animationTime = 1500;
+  const [score, setScore] = React.useState(0);
+  const animationTime = 1000;
 
   useEffect(() => {
     if (move) {
@@ -30,6 +31,12 @@ const Home: NextPage = () => {
       setComputerMove(undefined);
     }
   }, [move]);
+
+  useEffect(() => {
+    if (gameStatus() === "win") {
+      setScore(score + 1);
+    }
+  }, [isGameOver]);
 
   const gameStatus = (): "win" | "draw" | "lose" => {
     if (move === computerMove) return "draw";
@@ -66,7 +73,7 @@ const Home: NextPage = () => {
         </h1>
         <div className={styles.scoreBox}>
           <h2 className={styles.scoreTitle}>Score</h2>
-          <h3 className={styles.score}>12</h3>
+          <h3 className={styles.score}>{score}</h3>
         </div>
       </motion.header>
       <motion.main
